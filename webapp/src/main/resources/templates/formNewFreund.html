@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+	crossorigin="anonymous">
+
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+	integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
+	crossorigin="anonymous">
+
+<title>Friend Web Application</title>
+
+<style>
+body {
+	padding-top: 50px;
+}
+
+.special {
+	padding-top: 50px;
+}
+</style>
+</head>
+<body>
+
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container">
+			<div class="navbar-header">
+				<a class="navbar-brand" >Freunde Verwaltung</a>
+			</div>
+		</div>
+	</nav>
+
+
+	<div class="container special">
+
+		<h2 class="h2">Freunde hinzufügen</h2>
+		<div>
+
+			<!--th: object=${freund} fait le lien avec le ModelAttribute.,
+			th:field donne la correspondance avec les attributs de l’objet associé.
+			Vous pouvez noter la syntaxe particulière : “*{firstName}”.
+			 -->
+			<form method="post"
+				th:action="@{/saveFreund}" th:object="${freund}">
+				<div class="form-group">
+					<label for="firstNameInput">Vorname</label>
+					<input
+						type="text" th:field="*{firstName}" class="form-control" id="firstNameInput"
+						aria-describedby="firstNameHelp" placeholder="Vorname eingeben"> <small
+						id="firstNameHelp" class="form-text text-muted">Vorname bitte hier schreiben.</small>
+				</div>
+				<div class="form-group">
+					<label for="lastNameInput">Nachname</label>
+					<input
+						type="text" th:field="*{lastName}" class="form-control" id="lastNameInput"
+						aria-describedby="lastNameHelp" placeholder="Nachname schreiben"> <small
+						id="lastNameHelp" class="form-text text-muted">Nachname hier bitte schreiben.</small>
+				</div>
+				<div class="form-group">
+					<label for="mailInput">Email</label> 
+					<input
+						type="text" th:field="*{mail}" class="form-control" id="mailInput"
+						aria-describedby="mailHelp" placeholder="Tipp die Email-adresse"> <small
+						id="mailHelp" class="form-text text-muted">Email hier bitte schreiben!!!.</small>
+				</div>
+				<div class="form-group">
+					<label for="passwordInput">password</label>
+					<input
+						type="password" th:field="*{password}" class="form-control" id="passwordInput"
+						placeholder="Password">
+				</div>
+				
+				<button type="submit" class="btn btn-primary">Hinzufügen</button>
+			</form>
+		</div>
+
+	</div>
+
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+		integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+		crossorigin="anonymous"></script>
+</body>
+</html>
